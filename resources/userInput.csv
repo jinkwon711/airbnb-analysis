@@ -1,0 +1,13 @@
+id,reviews_per_month,review_scores_rating,neighbourhood_group_cleansed,property_type,room_type,beds,bed_type,price,cancellation_policy
+5441,1.55,97.0,Manhattan,Apartment,Private room,1.0,Real Bed,85.0,moderate
+8024,1.11,93.0,Brooklyn,Bed and breakfast,Private room,2.0,Real Bed,115.0,moderate
+8505,1.3,96.0,Brooklyn,Condominium,Private room,1.0,Real Bed,60.0,moderate
+9668,2.05,87.0,Manhattan,Apartment,Private room,1.0,Futon,50.0,moderate
+9782,1.7,81.0,Brooklyn,Apartment,Private room,1.0,Real Bed,55.0,moderate
+9783,2.37,89.0,Manhattan,Apartment,Private room,3.0,Futon,50.0,moderate
+12303,0.22,100.0,Brooklyn,Apartment,Private room,1.0,Real Bed,120.0,moderate
+12318,0.71,95.0,Manhattan,Apartment,Private room,1.0,Real Bed,135.0,moderate
+15338,1.2,85.0,Brooklyn,Apartment,Private room,1.0,Real Bed,49.0,moderate
+17092,0.45,91.0,Manhattan,Apartment,Private room,1.0,Real Bed,51.0,moderate
+20299,1.76,92.0,Manhattan,Apartment,Private room,1.0,Real Bed,60.0,moderate
+20300,0.05,60.0,Manhattan,Apartment,Private room,1.0,Real Bed,50.0,moderate

@@ -6,12 +6,9 @@ import org.apache.spark.ml.clustering.KMeans
 import org.apache.spark.ml.evaluation.ClusteringEvaluator
 import com.task.Utils._
 
-import scala.reflect.io.File
-
-
 object RunClustering {
 
-  def main(args:Array[String]):Unit={
+  def main(args: Array[String]): Unit = {
     val spark = SparkSession.builder().master("local[*]").getOrCreate()
     spark.sparkContext.setLogLevel("ERROR")
 
@@ -33,8 +30,6 @@ object RunClustering {
       .na.drop()
 
 
-
-
     val refinedListings = listings
       .withColumn("price", takeHeadCharOff('price))
       .filter($"price" =!= 0.0)
@@ -52,17 +47,16 @@ object RunClustering {
     /**
      * Indexers for stringed categorical values
      */
-    val indexer = new StringIndexer().setInputCols(Array("neighbourhood_group_cleansed","property_type","room_type","bed_type","cancellation_policy"))
-      .setOutputCols(Array("neighbourhoodIndex","property_typeIndex","room_typeIndex","bed_typeIndex","cancellation_policyIndex"))
+    val indexer = new StringIndexer().setInputCols(Array("neighbourhood_group_cleansed", "property_type", "room_type", "bed_type", "cancellation_policy"))
+      .setOutputCols(Array("neighbourhoodIndex", "property_typeIndex", "room_typeIndex", "bed_typeIndex", "cancellation_policyIndex"))
 
-    val scalerModel= scaler.fit(refinedListings)
+    val scalerModel = scaler.fit(refinedListings)
     scalerModel.save("models/scalerModel")
 
     val stded = scalerModel.transform(refinedListings)
     val indexModel = indexer.fit(stded)
     indexModel.save("models/indexerModel")
-    val indexed =   indexModel.transform(stded)
-    //    .drop("neighbourhood_cleansed", "property_type", "room_type", "bed_type", "cancellation_policy")
+    val indexed = indexModel.transform(stded)
 
 
     val encoder = new OneHotEncoder()
@@ -71,7 +65,6 @@ object RunClustering {
     val encoderModel = encoder.fit(indexed)
     encoderModel.save("models/encoderModel")
     val encodedTrainingData = encoderModel.transform(indexed)
-    //    .drop("neighbourhoodIndex", "property_typeIndex", "room_typeIndex", "bed_typeIndex", "cancellation_policyIndex")
 
 
     val assembler = new VectorAssembler().setInputCols(Array("room_typeVec", "cancellation_policyVec", "property_typeVec", "bed_typeVec", "doubleFeaturesStd"))
@@ -89,7 +82,6 @@ object RunClustering {
     val silhouette = evaluator.evaluate(predictionDF)
     println(s"Silhouette with squared euclidean distance = $silhouette")
 
-    //  predictionDF.show(20, false)
     predictionDF.groupBy("prediction").count().show()
     predictionDF.filter($"prediction" === 0).show()
     predictionDF.filter($"prediction" === 1).show()

@@ -29,3 +29,6 @@ $ spark-submit --master local --class com.task.UseClustering target/scala-2.12/s
 $ cd output
 $ vim part*
 ```
+
+## Release
+ - [v0.0.1](https://github.com/jinkwon711/airbnb-analysis/releases)

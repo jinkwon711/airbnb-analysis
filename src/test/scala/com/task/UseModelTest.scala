@@ -6,7 +6,7 @@ class UseModelTest extends org.scalatest.FunSuite {
 
 
   test("UseModelTest") {
-    UseClusetering
+//    UseClusetering
 
     assert(1===1)
 

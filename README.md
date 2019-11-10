@@ -1,5 +1,14 @@
 # airbnb-analysis
 This repository analyze airbnb listing data to find outliers and etc...
+## Prerequisites
+ - spark 3.0.0
+ - spark-ml 3.0.0
+ - sbt
+ - scala 2.12.10
+ 
+## 기획 내역
+ - [기획 내역 위키](https://github.com/jinkwon711/airbnb-analysis/wiki/Airbnb-%EB%A7%A4%EC%B6%9C-%EC%A6%9D%EC%95%A1%EC%9D%84-%EC%9C%84%ED%95%9C-%EB%B6%84%EC%84%9D---Grouping-&-Outlier-%ED%83%90%EC%A7%80%EB%A5%BC-%ED%86%B5%ED%95%98%EC%97%AC)
+
 
 ## 사용법
 ```
